@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Text from '../Text'
+import Text from '../utils/Text'
 import theme from '../../theme';
 
 const styles = StyleSheet.create({
@@ -8,15 +8,20 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
     },
-    text: {
+    inactive: {
+        color: theme.colors.inactiveTab,
+    },
+    active: {
         color: theme.colors.light,
     },
 });
 
-const AppBarTab = ({ name }) => {
+const AppBarTab = ({ name, active }) => {
     return (
         <View style={styles.tab}>
-            <Text fontSize='subheading' style={styles.text}>{name}</Text>
+            <Text fontSize='subheading' style={active ? styles.active : styles.inactive}>
+                {name}
+            </Text>
         </View>
     );
 };
