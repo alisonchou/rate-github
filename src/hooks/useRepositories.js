@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/react-hooks';
 import { GET_REPOSITORIES } from '../graphql/queries';
 
 const useRepositories = () => {
@@ -12,7 +12,7 @@ const useRepositories = () => {
         if (data) {
             setRepositories(data.repositories.edges.map(edge => edge.node));
         }
-    }, [data])
+    }, [data]);
 
     return { repositories, loading, refetch };
 };

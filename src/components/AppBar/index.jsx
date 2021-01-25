@@ -1,9 +1,12 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import React  from 'react';
+import { View, StyleSheet, ScrollView, TouchableHighlight } from 'react-native';
 import { Link, useLocation } from 'react-router-native';
+import { useApolloClient } from '@apollo/react-hooks';
 import Constants from 'expo-constants';
-import AppBarTab from './AppBarTab';
 import theme from '../../theme';
+import AppBarTab from './AppBarTab';
+import useUser from '../../hooks/useUser';
+import useAuth from '../../hooks/useAuth';
 
 const styles = StyleSheet.create({
     container: {
@@ -18,15 +21,29 @@ const styles = StyleSheet.create({
 
 const AppBar = () => {
     const { pathname } = useLocation();
+    const user = useUser();
+    const apolloClient = useApolloClient();
+    const authStorage = useAuth();
+    const signOut = async () => {
+        await authStorage.removeAccessToken();
+        await apolloClient.resetStore();
+    };
+    console.log('user', user)
     return (
         <View style={styles.container}>
             <ScrollView horizontal>
                 <Link to='/'>
                     <AppBarTab name='Repositories' active={pathname === '/'} />
                 </Link>
-                <Link to='/sign-in'>
-                    <AppBarTab name='Sign in' active={pathname === '/sign-in'} />
-                </Link>
+                {user ?
+                    <TouchableHighlight onPress={signOut}>
+                        <AppBarTab name='Sign out' />
+                    </TouchableHighlight>
+                    :
+                    <Link to='/sign-in'>
+                        <AppBarTab name='Sign in' active={pathname === '/sign-in'} />
+                    </Link>
+                }
             </ScrollView>
         </View>
     );

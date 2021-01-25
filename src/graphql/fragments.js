@@ -13,3 +13,9 @@ export const REPOSITORY_DETAILS = gql`
         ratingAverage
     }
 `
+export const USER_DETAILS = gql`
+    fragment UserDetails on User {
+        id
+        username
+    }
+`
