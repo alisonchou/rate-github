@@ -14,17 +14,15 @@ const styles = StyleSheet.create({
     },
 });
 
-const Main = () => {
-    return (
-        <View style={styles.container}>
-            <AppBar />
-            <Switch>
-                <Route exact path='/' component={RepositoryList} />
-                <Route exact path='/sign-in' component={SignIn} />
-                <Redirect to='/' />
-            </Switch>
-        </View>
-    );
-};
+const Main = () => (
+    <View style={styles.container}>
+        <AppBar />
+        <Switch>
+            <Route exact path='/' component={RepositoryList} />
+            <Route exact path='/sign-in' component={SignIn} />
+            <Redirect to='/' />
+        </Switch>
+    </View>
+);
 
 export default Main;
