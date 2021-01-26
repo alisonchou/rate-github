@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     },
 });
 
-const RepositoryItemBtm = ({ stars, forks, reviews, rate }) => (
+const RepositoryItemBtm = ({ stars, forks, reviews, rate, id }) => (
     <View style={styles.btmContainer}>
-        <RepositoryItemStat count={stars} label='Stars' />
-        <RepositoryItemStat count={forks} label='Forks' />
-        <RepositoryItemStat count={reviews} label='Reviews' />
-        <RepositoryItemStat count={rate} label='Rating' />
+        <RepositoryItemStat count={stars} label='Stars' id={id} />
+        <RepositoryItemStat count={forks} label='Forks' id={id} />
+        <RepositoryItemStat count={reviews} label='Reviews' id={id} />
+        <RepositoryItemStat count={rate} label='Rating' id={id} />
     </View>
 );
 

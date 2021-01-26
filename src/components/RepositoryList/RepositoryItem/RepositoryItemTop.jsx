@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const RepositoryItemTop = ({ uri, name, desc, lang }) => (
+const RepositoryItemTop = ({ uri, name, desc, lang, id }) => (
     <View style={styles.topContainer}>
         <RepositoryItemAvi uri={uri} />
-        <RepositoryItemDetails name={name} desc={desc} lang={lang} />
+        <RepositoryItemDetails name={name} desc={desc} lang={lang} id={id} />
     </View>
 );
 

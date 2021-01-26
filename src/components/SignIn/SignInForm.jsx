@@ -2,7 +2,7 @@ import { StyleSheet, TouchableHighlight, View } from 'react-native';
 import FormikTextInput from '../utils/FormikTextInput';
 import Text from '../utils/Text';
 import React from 'react';
-import theme from '../../theme';
+import theme from '../../utils/theme';
 
 const styles = StyleSheet.create({
     container: {
@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
 
 const SignInForm = ({ onSubmit }) => (
     <View style={styles.container}>
-        <FormikTextInput name='username' placeholder='Username' />
-        <FormikTextInput name='password' placeholder='Password'
-                         secureTextEntry style={{marginTop: 10}} />
-        <TouchableHighlight onPress={onSubmit}>
+        <FormikTextInput name='username' placeholder='Username' testID='usernameField' />
+        <FormikTextInput name='password' placeholder='Password' testID='passwordField'
+            secureTextEntry style={{marginTop: 10}} />
+        <TouchableHighlight onPress={onSubmit} testID='submitButton'>
             <Text
                 style={styles.btn}
                 backgroundColor='primary'

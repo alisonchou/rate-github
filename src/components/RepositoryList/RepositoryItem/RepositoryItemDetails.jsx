@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Text from '../../utils/Text';
-import theme from '../../../theme';
+import theme from '../../../utils/theme';
 
 const styles = StyleSheet.create({
     details: {
@@ -27,12 +27,14 @@ const styles = StyleSheet.create({
     },
 });
 
-const RepositoryItemDetails = ({ name, desc, lang }) => (
+const RepositoryItemDetails = ({ name, desc, lang, id }) => (
     <View style={styles.details}>
-        <Text fontWeight='bold' fontSize='subheading' style={styles.title}>{name}</Text>
-        <Text style={styles.description}>{desc}</Text>
+        <Text fontWeight='bold' fontSize='subheading' style={styles.title} testID={`${id}/Name`}>
+            {name}
+        </Text>
+        <Text style={styles.description} testID={`${id}/Desc`}>{desc}</Text>
         <View style={styles.languageTag}>
-            <Text style={styles.languageTagText}>{lang}</Text>
+            <Text style={styles.languageTagText} testID={`${id}/Lang`}>{lang}</Text>
         </View>
     </View>
 );

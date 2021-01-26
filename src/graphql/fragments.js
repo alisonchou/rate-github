@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost'
+import { gql } from 'apollo-boost';
 
 export const REPOSITORY_DETAILS = gql`
     fragment RepositoryDetails on Repository {
@@ -12,10 +12,10 @@ export const REPOSITORY_DETAILS = gql`
         reviewCount
         ratingAverage
     }
-`
+`;
 export const USER_DETAILS = gql`
     fragment UserDetails on User {
         id
         username
     }
-`
+`;

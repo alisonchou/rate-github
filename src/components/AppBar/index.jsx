@@ -1,9 +1,9 @@
 import React  from 'react';
 import { View, StyleSheet, ScrollView, TouchableHighlight } from 'react-native';
-import { Link, useLocation } from 'react-router-native';
+import { Link, useLocation, useHistory } from 'react-router-native';
 import { useApolloClient } from '@apollo/react-hooks';
 import Constants from 'expo-constants';
-import theme from '../../theme';
+import theme from '../../utils/theme';
 import AppBarTab from './AppBarTab';
 import useUser from '../../hooks/useUser';
 import useAuth from '../../hooks/useAuth';
@@ -21,14 +21,16 @@ const styles = StyleSheet.create({
 
 const AppBar = () => {
     const { pathname } = useLocation();
+    const history = useHistory();
     const user = useUser();
     const apolloClient = useApolloClient();
     const authStorage = useAuth();
     const signOut = async () => {
         await authStorage.removeAccessToken();
         await apolloClient.resetStore();
+        history.push('/');
     };
-    console.log('user', user)
+    console.log('user', user);
     return (
         <View style={styles.container}>
             <ScrollView horizontal>
@@ -47,6 +49,6 @@ const AppBar = () => {
             </ScrollView>
         </View>
     );
-}
+};
 
 export default AppBar;

@@ -6,4 +6,4 @@ export const SIGN_IN = gql`
             accessToken
         }
     }
-`
+`;

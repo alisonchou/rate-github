@@ -4,8 +4,8 @@ import { SIGN_IN } from '../graphql/mutations';
 import useAuth from '../hooks/useAuth';
 
 const useSignIn = () => {
-    const [mutate, result] = useMutation(SIGN_IN);
     const history = useHistory();
+    const [mutate, result] = useMutation(SIGN_IN);
     const authStorage = useAuth();
     const apolloClient = useApolloClient();
 
