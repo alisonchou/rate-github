@@ -7,10 +7,7 @@ const useUser = () => {
     const { data } = useQuery(GET_USER);
 
     useEffect(() => {
-        if (data) {
-            console.log('data', data);
-            setUser(data.authorizedUser);
-        }
+        if (data) setUser(data.authorizedUser);
     }, [data]);
 
     return user;

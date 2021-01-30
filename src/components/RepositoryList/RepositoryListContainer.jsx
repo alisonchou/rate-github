@@ -1,21 +1,18 @@
 import React from 'react';
-import { FlatList, View, StyleSheet } from 'react-native';
-import RepositoryItem from './RepositoryItem';
+import { FlatList } from 'react-native';
+import RepositoryItemWrapper from './RepositoryItem/RepositoryItemWrapper';
+import ItemSeparator from '../utils/ItemSeparator';
+import { useHistory } from 'react-router-native';
 
-const styles = StyleSheet.create({
-    separator: {
-        height: 10,
-    },
-});
-
-const ItemSeparator = () => <View style={styles.separator} />;
-
-const RepositoryListContainer = ({ repositories }) => (
-    <FlatList
-        data={repositories}
-        ItemSeparatorComponent={ItemSeparator}
-        renderItem={RepositoryItem}
-    />
-);
+const RepositoryListContainer = ({ repositories }) => {
+    const history = useHistory();
+    return (
+        <FlatList
+            data={repositories}
+            ItemSeparatorComponent={ItemSeparator}
+            renderItem={({ item }) => <RepositoryItemWrapper item={item} history={history} />}
+        />
+    );
+};
 
 export default RepositoryListContainer;

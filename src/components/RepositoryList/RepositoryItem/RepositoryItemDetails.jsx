@@ -22,9 +22,6 @@ const styles = StyleSheet.create({
         paddingRight: 6,
         paddingLeft: 6,
     },
-    languageTagText: {
-        color: theme.colors.light,
-    },
 });
 
 const RepositoryItemDetails = ({ name, desc, lang, id }) => (
@@ -32,9 +29,9 @@ const RepositoryItemDetails = ({ name, desc, lang, id }) => (
         <Text fontWeight='bold' fontSize='subheading' style={styles.title} testID={`${id}/Name`}>
             {name}
         </Text>
-        <Text style={styles.description} testID={`${id}/Desc`}>{desc}</Text>
+        <Text color='textSecondary' style={styles.description} testID={`${id}/Desc`}>{desc}</Text>
         <View style={styles.languageTag}>
-            <Text style={styles.languageTagText} testID={`${id}/Lang`}>{lang}</Text>
+            <Text color='light' testID={`${id}/Lang`}>{lang}</Text>
         </View>
     </View>
 );

@@ -16,21 +16,33 @@ const styles = StyleSheet.create({
     colorPrimary: {
         color: theme.colors.primary,
     },
+    colorLight: {
+        color: theme.colors.light,
+    },
+    inactiveTab: {
+        color: theme.colors.inactiveTab,
+    },
     fontSizeSubheading: {
         fontSize: theme.fontSizes.subheading,
     },
     fontWeightBold: {
         fontWeight: theme.fontWeights.bold,
     },
+    centered: {
+        textAlign: 'center',
+    },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, centered, ...props }) => {
     const textStyle = [
         styles.text,
         color === 'textSecondary' && styles.colorTextSecondary,
         color === 'primary' && styles.colorPrimary,
+        color === 'light' && styles.colorLight,
+        color === 'inactiveTab' && styles.inactiveTab,
         fontSize === 'subheading' && styles.fontSizeSubheading,
         fontWeight === 'bold' && styles.fontWeightBold,
+        centered && styles.centered,
         style,
     ];
     return <NativeText style={textStyle} {...props} />;

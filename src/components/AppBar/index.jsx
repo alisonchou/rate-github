@@ -30,7 +30,6 @@ const AppBar = () => {
         await apolloClient.resetStore();
         history.push('/');
     };
-    console.log('user', user);
     return (
         <View style={styles.container}>
             <ScrollView horizontal>
@@ -38,9 +37,14 @@ const AppBar = () => {
                     <AppBarTab name='Repositories' active={pathname === '/'} />
                 </Link>
                 {user ?
-                    <TouchableHighlight onPress={signOut}>
-                        <AppBarTab name='Sign out' />
-                    </TouchableHighlight>
+                    <>
+                        <Link to='/create-review'>
+                            <AppBarTab name='Create a review' active={pathname === '/create-review'} />
+                        </Link>
+                        <TouchableHighlight onPress={signOut}>
+                            <AppBarTab name='Sign out' />
+                        </TouchableHighlight>
+                    </>
                     :
                     <Link to='/sign-in'>
                         <AppBarTab name='Sign in' active={pathname === '/sign-in'} />

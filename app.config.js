@@ -28,4 +28,4 @@ export default {
             apolloUrl: process.env.APOLLO_URL,
         },
     }
-}
+};

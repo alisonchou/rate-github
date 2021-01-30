@@ -13,6 +13,26 @@ export const REPOSITORY_DETAILS = gql`
         ratingAverage
     }
 `;
+
+export const REPOSITORY_SINGLE = gql`
+    fragment RepositorySingle on Repository {
+        url
+        reviews {
+            edges {
+                node {
+                    id
+                    text
+                    rating
+                    createdAt
+                    user {
+                        username
+                    }
+                }
+            }
+        }
+    }
+`;
+
 export const USER_DETAILS = gql`
     fragment UserDetails on User {
         id

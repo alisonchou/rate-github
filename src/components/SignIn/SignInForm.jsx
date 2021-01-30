@@ -1,38 +1,15 @@
-import { StyleSheet, TouchableHighlight, View } from 'react-native';
-import FormikTextInput from '../utils/FormikTextInput';
-import Text from '../utils/Text';
 import React from 'react';
+import { TouchableHighlight, View } from 'react-native';
+import FormikTextInput from '../utils/FormikTextInput';
+import FormBtnText from '../utils/FormBtnText';
 import theme from '../../utils/theme';
 
-const styles = StyleSheet.create({
-    container: {
-        paddingLeft: 16,
-        paddingRight: 16,
-        paddingTop: 12,
-        paddingBottom: 12,
-        backgroundColor: theme.colors.light,
-    },
-    btn: {
-        backgroundColor: theme.colors.primary,
-        color: theme.colors.light,
-        textAlign: 'center',
-        borderRadius: 4,
-        padding: 12.5,
-        marginTop: 9,
-    },
-});
-
 const SignInForm = ({ onSubmit }) => (
-    <View style={styles.container}>
+    <View style={theme.formContainer}>
         <FormikTextInput name='username' placeholder='Username' testID='usernameField' />
-        <FormikTextInput name='password' placeholder='Password' testID='passwordField'
-            secureTextEntry style={{marginTop: 10}} />
+        <FormikTextInput name='password' placeholder='Password' testID='passwordField' secureTextEntry />
         <TouchableHighlight onPress={onSubmit} testID='submitButton'>
-            <Text
-                style={styles.btn}
-                backgroundColor='primary'
-                fontWeight='bold'
-            >Sign in</Text>
+            <FormBtnText content='Sign in' />
         </TouchableHighlight>
     </View>
 );
