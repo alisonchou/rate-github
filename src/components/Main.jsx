@@ -5,6 +5,7 @@ import RepositoryList from './RepositoryList';
 import SingleRepository from './RepositoryList/SingleRepository';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 import CreateReview from './CreateReview';
 import theme from '../utils/theme';
 
@@ -22,6 +23,7 @@ const Main = () => (
         <Switch>
             <Route exact path='/' component={RepositoryList} />
             <Route exact path='/sign-in' component={SignIn} />
+            <Route exact path='/sign-up' component={SignUp} />
             <Route exact path='/create-review' component={CreateReview} />
             <Route exact path='/repository/:id' component={SingleRepository} />
             <Redirect to='/' />

@@ -6,15 +6,15 @@ const useCreateRepo = () => {
     const history = useHistory();
     const [mutate] = useMutation(CREATE_REVIEW);
 
-    const createRepo = async (newReview) => {
-        const { data } = await mutate({ variables: { ...newReview, rating: Number(newReview.rating) }});
-        if (data?.createReview) {
+    return async (newReview) => {
+        try {
+            const { data } = await mutate({ variables: { ...newReview, rating: Number(newReview.rating) }});
             history.push(`repository/${data.createReview.repositoryId}`);
+            return data;
+        } catch (e) {
+            console.log('error creating review', e);
         }
-        return data;
     };
-
-    return createRepo;
 };
 
 export default useCreateRepo;

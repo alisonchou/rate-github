@@ -26,7 +26,7 @@ const CreateReview = () => {
     const onSubmit = values => createRepo(values);
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-            {({ handleSubmit }) => <CreateReviewForm handleSubmit={handleSubmit} />}
+            {({ handleSubmit }) => <CreateReviewForm onSubmit={handleSubmit} />}
         </Formik>
     );
 };

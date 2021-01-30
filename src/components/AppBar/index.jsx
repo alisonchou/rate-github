@@ -46,9 +46,14 @@ const AppBar = () => {
                         </TouchableHighlight>
                     </>
                     :
-                    <Link to='/sign-in'>
-                        <AppBarTab name='Sign in' active={pathname === '/sign-in'} />
-                    </Link>
+                    <>
+                        <Link to='/sign-in'>
+                            <AppBarTab name='Sign in' active={pathname === '/sign-in'} />
+                        </Link>
+                        <Link to='/sign-up'>
+                            <AppBarTab name='Sign up' active={pathname === '/sign-up'} />
+                        </Link>
+                    </>
                 }
             </ScrollView>
         </View>

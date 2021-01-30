@@ -3,14 +3,8 @@ import SignInContainer from './SignInContainer';
 import useSignIn from '../../hooks/useSignIn';
 
 const SignIn = () => {
-    const [signIn] = useSignIn();
-    const onSubmit = async (values) => {
-        try {
-            await signIn(values);
-        } catch (e) {
-            console.log('error signing in', e);
-        }
-    };
+    const signIn = useSignIn();
+    const onSubmit = values => signIn(values);
     return (
         <SignInContainer onSubmit={onSubmit} />
     );

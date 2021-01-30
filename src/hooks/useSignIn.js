@@ -5,21 +5,21 @@ import useAuth from '../hooks/useAuth';
 
 const useSignIn = () => {
     const history = useHistory();
-    const [mutate, result] = useMutation(SIGN_IN);
+    const [mutate] = useMutation(SIGN_IN);
     const authStorage = useAuth();
     const apolloClient = useApolloClient();
 
-    const signIn = async (credentials) => {
-        const { data } = await mutate({ variables: credentials});
-        if (data?.authorize) {
+    return async (credentials) => {
+        try {
+            const { data } = await mutate({ variables: credentials});
             await authStorage.setAccessToken(data.authorize.accessToken);
             await apolloClient.resetStore();
             history.push('/');
+            return data;
+        } catch (e) {
+            console.log('error signing in', e);
         }
-        return data;
     };
-
-    return [signIn, result];
 };
 
 export default useSignIn;
