@@ -21,28 +21,28 @@ provides Apollo GraphQL API and REST API endpoints with SQLite.
 - Debounces filter value with use-debounce to decrease server load while user types
 
 ## 📱 Screenshots
+**Home** - view repositories and sort and/or filter
+
 ![Home](assets/screenshots/home.png 'Home')
 
-Home - view repositories and sort and/or filter
+**Repository View** - single repository view shows details from home,
+reviews, and a button to view online
 
 ![Repository View](assets/screenshots/repository-page.png 'Repository View')
 
-Repository View - single repository view shows details from home,
-reviews, and a button to view online
+**Create Review** - signed-in users can review repositories
 
 ![Create Review](assets/screenshots/create-review.png 'Create Review')
 
-Create Review - signed-in users can review repositories
+**My Reviews** - signed-in users can view and delete reviews that they created
 
 ![My Reviews](assets/screenshots/my-reviews.png 'My Reviews')
 
-My Reviews - signed-in users can view and delete reviews that they created
+**Sign In** - users can sign in to accounts
 
 ![Sign In](assets/screenshots/sign-in.png 'Sign In')
 
-Sign In - users can sign in to accounts
+**Sign Up** - users can create accounts with a username from 1-30 characters
+and a password from 5-50 characters
 
 ![Sign Up](assets/screenshots/sign-up.png 'Sign Up')
-
-Sign Up - users can create accounts with a username from 1-30 characters
-and a password from 5-50 characters
