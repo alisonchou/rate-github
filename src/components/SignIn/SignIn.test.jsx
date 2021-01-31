@@ -10,7 +10,7 @@ describe('SignIn', () => {
 
             debug();
 
-            const credentials = { username: 'kalle', password: 'password' };
+            const credentials = { username: 'kalle', password: 'password', };
 
             /* act() throws incorrect error - "Warning: You called act(async () => ...) without await"
                https://github.com/callstack/react-native-testing-library/issues/379 */

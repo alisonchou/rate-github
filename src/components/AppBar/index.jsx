@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 const AppBar = () => {
     const { pathname } = useLocation();
     const history = useHistory();
-    const user = useUser();
+    const { user } = useUser();
     const apolloClient = useApolloClient();
     const authStorage = useAuth();
     const signOut = async () => {
@@ -40,6 +40,9 @@ const AppBar = () => {
                     <>
                         <Link to='/create-review'>
                             <AppBarTab name='Create a review' active={pathname === '/create-review'} />
+                        </Link>
+                        <Link to='/my-reviews'>
+                            <AppBarTab name='My reviews' active={pathname === '/my-reviews'} />
                         </Link>
                         <TouchableHighlight onPress={signOut}>
                             <AppBarTab name='Sign out' />

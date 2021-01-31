@@ -9,9 +9,9 @@ const useSignIn = () => {
     const authStorage = useAuth();
     const apolloClient = useApolloClient();
 
-    return async (credentials) => {
+    return async credentials => {
         try {
-            const { data } = await mutate({ variables: credentials});
+            const { data } = await mutate({ variables: credentials });
             await authStorage.setAccessToken(data.authorize.accessToken);
             await apolloClient.resetStore();
             history.push('/');

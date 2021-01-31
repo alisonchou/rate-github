@@ -16,10 +16,8 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.light,
     },
     button: {
-        backgroundColor: theme.colors.primary,
-        padding: 13,
+        ...theme.button,
         marginTop: 16,
-        borderRadius: 4,
     },
 });
 
@@ -29,9 +27,8 @@ const RepositoryItem = ({ item, single }) => (
             desc={item.description} lang={item.language} />
         <RepositoryItemBtm stars={item.stargazersCount} forks={item.forksCount} id={item.id}
             reviews={item.reviewCount} rate={item.ratingAverage} />
-        {single &&
-        <TouchableHighlight onPress={() => openBrowserAsync(item.url)} style={styles.button}>
-            <Text fontWeight='bold' color='light' centered>Open in GitHub</Text>
+        {single && <TouchableHighlight onPress={() => openBrowserAsync(item.url)} style={styles.button}>
+            <Text btnText>Open in GitHub</Text>
         </TouchableHighlight>}
     </View>
 );

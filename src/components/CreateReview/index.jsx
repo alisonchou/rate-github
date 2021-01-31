@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { object, number, string } from 'yup';
-import useCreateRepo from '../../hooks/useCreateRepo';
+import useCreateReview from '../../hooks/useCreateReview';
 import CreateReviewForm from './CreateReviewForm';
 
 const initialValues = {
@@ -22,7 +22,7 @@ const validationSchema = object().shape({
 });
 
 const CreateReview = () => {
-    const createRepo = useCreateRepo();
+    const createRepo = useCreateReview();
     const onSubmit = values => createRepo(values);
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>

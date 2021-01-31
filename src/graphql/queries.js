@@ -1,15 +1,24 @@
 import { gql } from 'apollo-boost';
 
-import { REPOSITORY_DETAILS, USER_DETAILS,
-    REPOSITORY_SINGLE_DETAILS, REPOSITORY_SINGLE } from './fragments';
+import { REPOSITORY_DETAILS, REPOSITORY_SINGLE, USER_DETAILS } from './fragments';
 
 export const GET_REPOSITORIES = gql`
-    query {
-        repositories {
+    query repositories(
+        $orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirection,
+        $filter: String, $first: Int!, $after: String
+    ) {
+        repositories(
+            orderBy: $orderBy, orderDirection: $orderDirection,
+            searchKeyword: $filter, first: $first, after: $after
+        ) {
             edges {
                 node {
                     ...RepositoryDetails
                 }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
             }
         }
     }
@@ -17,8 +26,8 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const GET_REPOSITORY = gql`
-    query repository($id: ID!) {
-        repository(id: $id)  {
+    query repository($id: ID!, $first: Int!, $after: String) {
+        repository(id: $id) {
             ...RepositoryDetails
             ...RepositorySingle
         }
@@ -28,7 +37,7 @@ export const GET_REPOSITORY = gql`
 `;
 
 export const GET_USER = gql`
-    query {
+    query authorizedUser($includeReviews: Boolean = false) {
         authorizedUser {
             ...UserDetails
         }

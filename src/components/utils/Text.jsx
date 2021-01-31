@@ -31,9 +31,14 @@ const styles = StyleSheet.create({
     centered: {
         textAlign: 'center',
     },
+    btnText: {
+        fontWeight: theme.fontWeights.bold,
+        color: theme.colors.light,
+        textAlign: 'center',
+    },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, centered, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, centered, btnText, ...props }) => {
     const textStyle = [
         styles.text,
         color === 'textSecondary' && styles.colorTextSecondary,
@@ -43,6 +48,7 @@ const Text = ({ color, fontSize, fontWeight, style, centered, ...props }) => {
         fontSize === 'subheading' && styles.fontSizeSubheading,
         fontWeight === 'bold' && styles.fontWeightBold,
         centered && styles.centered,
+        btnText && styles.btnText,
         style,
     ];
     return <NativeText style={textStyle} {...props} />;

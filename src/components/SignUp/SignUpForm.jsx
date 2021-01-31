@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableHighlight, View } from 'react-native';
 import FormikTextInput from '../utils/FormikTextInput';
-import FormBtnText from '../utils/FormBtnText';
+import Text from '../utils/Text';
 import theme from '../../utils/theme';
 
 const SignUpForm = ({ onSubmit }) => (
@@ -9,8 +9,8 @@ const SignUpForm = ({ onSubmit }) => (
         <FormikTextInput name='username' placeholder='Username' />
         <FormikTextInput name='password' placeholder='Password' secureTextEntry />
         <FormikTextInput name='confirmPassword' placeholder='Password confirmation' secureTextEntry />
-        <TouchableHighlight onPress={onSubmit}>
-            <FormBtnText content='Sign up' />
+        <TouchableHighlight onPress={onSubmit} style={theme.button}>
+            <Text btnText>Sign up</Text>
         </TouchableHighlight>
     </View>
 );

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-native';
 import SignUpForm from './SignUpForm';
 import useSignIn from '../../hooks/useSignIn';
 import useSignUp from '../../hooks/useSignUp';
@@ -29,12 +28,10 @@ const validationSchema = object().shape({
 const SignUp = () => {
     const signUp = useSignUp();
     const signIn = useSignIn();
-    const history = useHistory();
     const onSubmit = async ({ username, password }) => {
         const credentials = { username, password };
         await signUp(credentials);
         await signIn(credentials);
-        history.push('/');
     };
     return (
         <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
