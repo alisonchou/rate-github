@@ -1,16 +1,32 @@
 # Rate Repository App
 
-A mobile app built with React Native. [Server](https://github.com/fullstack-hy2020/rate-repository-api) 
+An iOS and Android mobile app built with React Native and Expo.
+[Server](https://github.com/fullstack-hy2020/rate-repository-api) 
 provides Apollo GraphQL API and REST API endpoints with SQLite.
 
-## 🔧 Functionality
+## 🚀 Getting started
+- Clone this repository and run `cd rate-github` to set the current directory to the app.
+- Run `npm install`.
+- Run `npm start` and record the IP address between `exp://` and `:`. Press `Ctr-C` to stop.
+- Copy the contents of the `.env.template` file into an `.env` file.
+  In the `.env` file, replace `<EXPO_IP_ADDRESS>` in `APOLLO_URL` with
+  the previously recorded address.
+- Outside the `rate-github` directory, follow the app
+  [server](https://github.com/fullstack-hy2020/rate-repository-api)
+  instructions to set up the backend.
+- In one terminal window, run `npm start` in the `rate-github` (client) directory.
+- In another terminal window, run `npm start` in the `rate-repository-api` (server) directory.
+- Connect an [iOS](https://docs.expo.io/workflow/ios-simulator/) or
+  [Android](https://docs.expo.io/workflow/android-studio-emulator/) emulator, or install the
+  Expo app on your device and scan the QR code in the Expo development tools.
 
+## 🔧 Functionality
 - Sign up, sign in, sign out
 - Review GitHub repositories
 - Sort by latest, highest rated, and lowest rated repositories
 - Filter repositories
 - View and delete your own reviews
-- Infinite scrolling on repositories page and reviews on single repository
+- Infinite scrolling on repositories page and reviews on single repository page
 
 ## ⚙ Technologies
 - Apollo Boost library for GraphQL Apollo Client
